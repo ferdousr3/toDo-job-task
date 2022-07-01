@@ -6,7 +6,7 @@ const Footer = () => {
   const year = date.getFullYear()
   return (
     <>
-      <div className="footer footer-center p-10 bg-white shadow-4xl mt-4 ">
+      <div className="footer footer-center p-10 bg-[#fafafa] shadow-4xl mt-4 ">
         <div>
           <img className="w-14" src={logo} alt="logo" />
           <p className=" font-semibold ">

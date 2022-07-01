@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { BsCheck2, BsPlus } from "react-icons/bs";
+import {  BsCheck2, BsPlus } from "react-icons/bs";
+import { FaClipboardList } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const Task = () => {
@@ -25,7 +26,6 @@ const Task = () => {
     event.preventDefault();
     const newTask = {
       task: task,
-      date: "20-2014",
     };
     const url = `https://todojobtask.herokuapp.com/task`;
     fetch(url, {
@@ -50,7 +50,11 @@ const Task = () => {
       <div className="max-w-lg mx-auto">
         {/* task Heading */}
         <div className="shadow-3xl py-2.5 px-4 mb-10 text-second rounded-md ">
-          <h1 className="text-base  font-normal ">Add your Daily Task </h1>
+          <div className="flex items-center">
+            <FaClipboardList className="text-xl mr-4" />
+
+            <h1 className="text-base  font-normal ">Add your Daily Task </h1>
+          </div>
         </div>
         {/* task add form */}
         <div className="shadow-3xl py-2 px-4 mb-10 text-second rounded-md ">

@@ -8,7 +8,7 @@ const DeleteConfirmModal = ({
 }) => {
   const { task, _id } = deletingTask;
   const handleDelete = () => {
-    fetch(`http://localhost:5000/task/${_id}`, {
+    fetch(`https://todojobtask.herokuapp.com/task/${_id}`, {
       method: "DELETE",
       // headers: {
       //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -17,7 +17,7 @@ const DeleteConfirmModal = ({
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-          toast.success(`Task: ${task} is deleted`);
+          toast.success(` ${task} is deleted`);
           setDeletingTask(null);
           refetch();
         }

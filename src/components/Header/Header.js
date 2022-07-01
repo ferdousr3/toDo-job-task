@@ -5,7 +5,7 @@ import logo from '../../assets/Images/logo.png'
 const Header = () => {
   return (
     <>
-      <div className=" bg-info shadow-3xl fixed w-full top-0 ">
+      <div className=" bg-info shadow-3xl fixed w-full top-0 z-20 ">
         <div className="navbar container mx-auto">
           <div className="flex-1">
             <Link to="/" className="btn btn-ghost normal-case text-xl">
