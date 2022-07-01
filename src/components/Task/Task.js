@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import {  BsCheck2, BsPlus } from "react-icons/bs";
+import { BsCheck2, BsPlus } from "react-icons/bs";
 import { FaClipboardList } from "react-icons/fa";
 import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 
 const Task = () => {
+  const [user] = useAuthState(auth);
   const [task, setTask] = useState("");
-
   const {
     register,
     formState: { errors },
@@ -26,12 +28,14 @@ const Task = () => {
     event.preventDefault();
     const newTask = {
       task: task,
+      email: user.email,
     };
-    const url = `https://todojobtask.herokuapp.com/task`;
+    const url = `http://localhost:5000/task`;
     fetch(url, {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(newTask),
     })
@@ -45,6 +49,8 @@ const Task = () => {
       });
   };
 
+  
+
   return (
     <>
       <div className="max-w-lg mx-auto">
@@ -53,7 +59,10 @@ const Task = () => {
           <div className="flex items-center">
             <FaClipboardList className="text-xl mr-4" />
 
-            <h1 className="text-base  font-normal ">Add your Daily Task </h1>
+            <h1 className="text-base  font-normal ">
+              {" "}
+              <span className="mrl-1 font-semibold" >{user?.displayName}</span> Add your Daily Task{" "}
+            </h1>
           </div>
         </div>
         {/* task add form */}

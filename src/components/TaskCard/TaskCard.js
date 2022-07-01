@@ -1,13 +1,11 @@
 import React from 'react';
-import { BsPencilSquare, BsTrash } from "react-icons/bs";
+import { BsFillCalendarPlusFill,  BsTrash } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 
 const TaskCard = ({task,refetch,setDeletingTask}) => {
   const navigate = useNavigate()
 
   
-
-
   return (
     <>
       <div className="max-w-lg mx-auto">
@@ -22,7 +20,7 @@ const TaskCard = ({task,refetch,setDeletingTask}) => {
           <div className="flex items-center">
             {/* edit button */}
             <button onClick={() => navigate(`/editTask/${task._id}`)}>
-              <BsPencilSquare className="text-primary text-xl mx-2 hover:text-blue-500 transition-colors duration-500" />
+              <BsFillCalendarPlusFill className="text-primary text-xl mx-2 hover:text-blue-500 transition-colors duration-500" />
             </button>
             {/* delete button */}
             <label

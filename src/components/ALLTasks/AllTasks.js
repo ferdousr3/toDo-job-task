@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
-import {  BsCheck2Circle } from 'react-icons/bs';
+import { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { BsCheck2Circle } from 'react-icons/bs';
 import { useQuery } from 'react-query';
-import DeleteConfirmModal from '../DeleteConfirmModal/DeleteConfirmModal';
+import auth from '../../firebase.init';
 import Loading from '../Loading/Loading';
+import DeleteConfirmModal from '../Modal/DeleteConfirmModal';
 import TaskCard from '../TaskCard/TaskCard';
 
 const AllTasks = () => {
+  const [user] = useAuthState(auth)
   const [deletingTask, setDeletingTask] = useState(null);
   const {
     data: task,
     refetch,
     isLoading,
   } = useQuery("task", () =>
-    fetch("https://todojobtask.herokuapp.com/tasks/", {
+    fetch(`http://localhost:5000/singleTask?email=${user.email}`, {
       method: "GET",
       // headers: {
       //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       // },
-    })
-      .then((res) => res.json())
+    }).then((res) => res.json())
   );
 
 

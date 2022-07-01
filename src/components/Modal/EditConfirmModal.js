@@ -1,35 +1,34 @@
-import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const DeleteConfirmModal = ({
-  deletingTask,
-  refetch,
-  setDeletingTask,
-}) => {
-  const { task, _id } = deletingTask;
-  const handleDelete = () => {
-    fetch(`https://todojobtask.herokuapp.com/task/${_id}`, {
-      method: "DELETE",
-      // headers: {
-      //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      // },
+const EditConfirmModal = ({ editTask, setEditTask }) => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const { task } = editTask;
+  const handleEdit = () => {
+    fetch(`http://localhost:5000/task/${id}`, {
+      method: "put",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.deletedCount) {
-          toast.success(` ${task} is deleted`);
-          setDeletingTask(null);
-          refetch();
+        if (data.modifiedCount) {
+          toast.success(` ${task} Date is Added`);
+          setEditTask(null);
+          
+        }
+        if (data.modifiedCount === 1) {
+          navigate("/");
         }
       });
+      
   };
   return (
     <>
-      <input
-        type="checkbox"
-        id="delete-confirm-modal"
-        className="modal-toggle"
-      />
+    
+      <input type="checkbox" id="edit-confirm-modal" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle z-30 ">
         <div className="modal-box">
           <svg
@@ -47,13 +46,13 @@ const DeleteConfirmModal = ({
             ></path>
           </svg>
           <h3 className=" text-center mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-            Are you sure you want to delete {task} ?
+            Are you sure you want add Date {task} ?
           </h3>
 
           <div className="flex justify-center items-center">
             <div className="modal-action">
               <button
-                onClick={() => handleDelete()}
+                onClick={() => handleEdit()}
                 className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
               >
                 Yes, I'm sure
@@ -61,7 +60,7 @@ const DeleteConfirmModal = ({
             </div>
             <div className="modal-action">
               <label
-                htmlFor="delete-confirm-modal"
+                htmlFor="edit-confirm-modal"
                 className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
               >
                 No, cancel
@@ -74,4 +73,4 @@ const DeleteConfirmModal = ({
   );
 };
 
-export default DeleteConfirmModal;
+export default EditConfirmModal;
