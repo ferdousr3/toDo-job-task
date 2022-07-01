@@ -18,7 +18,7 @@ const Error = () => {
           </p>
           <div className="mt-3">
             <button
-              className="bg-main text-white py-2.5 px-8 rounded-3xl uppercase text-[14px] font-normal hover:bg-mains transition-all duration-500  "
+              className="bg-primary text-white py-2.5 px-8 rounded-3xl uppercase text-[14px] font-normal hover:bg-mains transition-all duration-500  "
               onClick={() => navigate("/")}
             >
               Go back home

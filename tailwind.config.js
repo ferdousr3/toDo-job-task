@@ -12,10 +12,13 @@ module.exports = {
         },
       },
       fontFamily: {
-        display: ["Rajdhani", "sans-serif"],
+        display: ["Poppins", "sans-serif"],
       },
       boxShadow: {
         "3xl": "rgb(169 174 183 / 50%) 0px 1px 2px 0px",
+        "4xl": "0 0 1px rgb(38 78 118 / 35%)",
+        "5xl": "0px 6px 30px rgba(38, 78, 118, 0.1)",
+        
       },
     },
   },
@@ -27,11 +30,9 @@ module.exports = {
           secondary: "rgb(119, 124, 130)",
           accent: "rgb(89, 89, 89)",
           neutral: "rgb(128, 134, 139)",
-          info: "#ffd800",
+          info: "rgba(255, 255, 255, 0.9)",
           success: "#f3f3f3",
-          bordercolor: "#e5e7eb",
           card: "#333333",
-          cards: "rgba(255, 255, 255, 0.9)",
           "base-100": "#FFFFFF",
         },
       },

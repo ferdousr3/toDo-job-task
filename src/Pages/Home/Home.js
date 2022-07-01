@@ -1,10 +1,18 @@
 import React from 'react';
+import AllTasks from '../../components/ALLTasks/AllTasks';
+import Task from '../../components/Task/Task';
 
 const Home = () => {
   return (
-    <div>
-      sdsfsfs home
-    </div>
+    <>
+     {/* task section */}
+     <section>
+      <Task />
+     </section>
+     <section>
+      <AllTasks/>
+     </section>
+    </>
   );
 };
 
