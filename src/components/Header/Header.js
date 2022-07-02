@@ -45,20 +45,20 @@ const Header = () => {
                   className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <p className="text-sm text-accent flex items-center">
+                    <p className="text-xs lg:text-sm text-accent flex items-center">
                       Name:
                       <span className="text-xs font-medium ">
                         {user?.displayName}
                       </span>
                     </p>
                   </li>
-                  <li>
+                  {/* <li>
                     <p className="text-sm text-accent flex items-center">
                       <span className="text-xs font-medium ">
                         {user?.email}
                       </span>
                     </p>
-                  </li>
+                  </li> */}
                   <li>
                     {user ? (
                       <button

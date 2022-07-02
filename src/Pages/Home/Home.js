@@ -16,11 +16,16 @@ const [user] = useAuthState(auth)
       <div className="hero xl:py-32">
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-lg">
-            <h1 className="mb-5 text-3xl text-primary lg:text-5xl lg:li font-bold lg:leading-snug">
-              Welcome <span className="text-accent">{user?.displayName} </span>
-              To Daily Task
+            <h1 className="mb-5 text-3xl text-primary lg:text-6xl lg:li font-bold lg:leading-snug">
+              Welcome To Daily Task
             </h1>
-            <p className="mb-5 text-accent">Hi, Its a Daily task Noted web site, Here you write your small task with date , after complete task delete your task. For Starting your task Click the <strong>Get Start</strong> button and login. </p>
+            <p className="mb-5 text-accent">
+              Hi, <span className="text-primary">{user?.displayName}</span>
+              <span className={user?.displayName? 'visible':'hidden'}>. </span>
+              Its a Daily task Noted web site, Here you write your small task
+              with date , after complete task delete your task. For Starting
+              your task Click the <strong>Get Start</strong> button and login.{" "}
+            </p>
             <button
               onClick={() => navigate("/tasks")}
               className="bg-primary border border-primary text-white text-sm py-2.5 px-6 rounded-md hover:border hover:border-primary hover:text-primary hover:bg-white transition-colors duration-500"
