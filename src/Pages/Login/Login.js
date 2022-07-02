@@ -152,7 +152,7 @@ const Login = () => {
               </button>
             </div>
             <p className="text-xs md:text-sm text-accent mt-1 font-medium  pl-1">
-              New Auto Parts?
+              New Daily Task?
               <Link to="/signup" className="text-primary font-medium  pl-1">
                 Create new Account
               </Link>
