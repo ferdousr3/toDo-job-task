@@ -15,11 +15,11 @@ const AllTasks = () => {
     refetch,
     isLoading,
   } = useQuery("task", () =>
-    fetch(`http://localhost:5000/singleTask?email=${user.email}`, {
+    fetch(`https://todojobtask.herokuapp.com/singleTask?email=${user.email}`, {
       method: "GET",
-      // headers: {
-      //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      // },
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
     }).then((res) => res.json())
   );
 

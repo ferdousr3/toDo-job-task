@@ -30,7 +30,7 @@ const Task = () => {
       task: task,
       email: user.email,
     };
-    const url = `http://localhost:5000/task`;
+    const url = `https://todojobtask.herokuapp.com/task`;
     fetch(url, {
       method: "POST",
       headers: {

@@ -7,7 +7,7 @@ const useUser = (user) => {
     const name = user?.displayName?.displayName;
     const currentUser = { email: email, name: name };
     if (email) {
-      fetch(`http://localhost:5000/user/${email}`, {
+      fetch(`https://todojobtask.herokuapp.com/user/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

@@ -19,7 +19,7 @@ const EditTask = () => {
   // data fetching for single id
 
   useEffect(() => {
-    const url = `http://localhost:5000/task/${id}`;
+    const url = `https://todojobtask.herokuapp.com/task/${id}`;
     fetch(url, {
       method: "GET",
       headers: {
@@ -41,7 +41,7 @@ const EditTask = () => {
       task: newTask,
       date: formattedDate,
     };
-    const url = `http://localhost:5000/task/${id}`;
+    const url = `https://todojobtask.herokuapp.com/task/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
