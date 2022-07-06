@@ -51,7 +51,6 @@ const EditTask = () => {
       body: JSON.stringify(updatedTask),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
     // event.target.reset();
     setNewTask("");
     toast(`Add Date successfully`);
@@ -63,7 +62,7 @@ const EditTask = () => {
   // if (isLoading) {
   //   return <Loading />;
   // }
-
+console.log('date',date);
   return (
     <>
     <PageTitle title='Add Date' />

@@ -9,6 +9,7 @@ import auth from "../../firebase.init";
 const Task = () => {
   const [user] = useAuthState(auth);
   const [task, setTask] = useState("");
+
   const {
     register,
     formState: { errors },
@@ -49,7 +50,6 @@ const Task = () => {
       });
   };
 
-  
 
   return (
     <>
@@ -61,7 +61,10 @@ const Task = () => {
 
             <h1 className="text-base  font-normal ">
               {" "}
-              <span className="mrl-1 font-semibold" >{user?.displayName}</span> Add your Daily Task{" "}
+              <span className="mrl-1 font-semibold">
+                {user?.displayName}
+              </span>{" "}
+              Add your Daily Task{" "}
             </h1>
           </div>
         </div>

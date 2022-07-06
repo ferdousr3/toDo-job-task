@@ -11,7 +11,7 @@ const TaskCard = ({task,refetch,setDeletingTask}) => {
       <div className="max-w-lg mx-auto">
         <div className="shadow-3xl py-2.5 px-4 mb-4 text-second rounded-md flex items-center justify-between ">
           <div className="div">
-            <h1 className="text-sm font-medium capitalize ">{task.task}</h1>
+            <h1 className="text-sm font-medium capitalize ">{task?.task}</h1>
             <span className="text-xs font-medium text-primary">
               {task?.date}
             </span>
@@ -19,7 +19,7 @@ const TaskCard = ({task,refetch,setDeletingTask}) => {
 
           <div className="flex items-center">
             {/* edit button */}
-            <button onClick={() => navigate(`/editTask/${task._id}`)}>
+            <button onClick={() => navigate(`/editTask/${task?._id}`)}>
               <BsFillCalendarPlusFill className="text-primary text-xl mx-2 hover:text-blue-500 transition-colors duration-500" />
             </button>
             {/* delete button */}
