@@ -11,20 +11,6 @@ import TaskCard from "../TaskCard/TaskCard";
 const AllTasks = () => {
   const [user] = useAuthState(auth);
   const [deletingTask, setDeletingTask] = useState(null);
-  // const [newTask, setNewTask] = useState(null);
-  // const {
-  //   data: task,
-  //   refetch,
-  //   isLoading,
-  // } = useQuery("task", () =>
-  //   fetch(`https://todojobtask.herokuapp.com/singleTask?email=${user.email}`, {
-  //     method: "GET",
-  //     headers: {
-  //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-  //     },
-  //   }).then((res) => res.json())
-
-  // );
   const headers = {
     authorization: `Bearer ${localStorage.getItem("accessToken")}`,
   };
@@ -37,13 +23,11 @@ const AllTasks = () => {
       }
     );
   };
-  const { data, refetch, isLoading, isError, error, isFetching } = useQuery(
+  const { data, refetch, isLoading, isError, error } = useQuery(
     "task",
     getData,
     {
-      // refetchOnMount: "always",
-      // refetchOnWindowFocus: "always",
-      refetchInterval:4000,
+      refetchInterval: 4000,
     }
   );
   // if data miss and can not get data
@@ -70,7 +54,6 @@ const AllTasks = () => {
         </div>
       </div>
       {/* task card */}
-      {/* {isFetching ? <Loading /> : null} */}
       {data?.data?.map((task) => (
         <TaskCard
           key={task?._id}
