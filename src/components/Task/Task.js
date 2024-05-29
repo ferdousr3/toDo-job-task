@@ -31,7 +31,7 @@ const Task = () => {
       task: task,
       email: user.email,
     };
-    const url = `https://todojobtask.herokuapp.com/task`;
+    const url = `https://to-do-job.vercel.app/task`;
     fetch(url, {
       method: "POST",
       headers: {
