@@ -6,7 +6,7 @@ const EditConfirmModal = ({ editTask, setEditTask }) => {
   const { id } = useParams();
   const { task } = editTask;
   const handleEdit = () => {
-    fetch(`https://todojobtask.herokuapp.com/task/${id}`, {
+    fetch(`https://to-do-job-task.vercel.app/task/${id}`, {
       method: "put",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
