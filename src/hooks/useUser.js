@@ -7,7 +7,7 @@ const useUser = (user) => {
     const name = user?.displayName?.displayName;
     const currentUser = { email: email, name: name };
     if (email) {
-      fetch(`https://todojobtask.herokuapp.com/user/${email}`, {
+      fetch(`https://to-do-job.vercel.app/user/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
