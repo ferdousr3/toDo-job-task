@@ -17,7 +17,7 @@ const AllTasks = () => {
 
   const getData = () => {
     return axios.get(
-      `https://todojobtask.herokuapp.com/singleTask?email=${user.email}`,
+      `https://to-do-job.vercel.app/singleTask?email=${user.email}`,
       {
         headers: headers,
       }
