@@ -19,7 +19,7 @@ const EditTask = () => {
   // data fetching for single id
 
   useEffect(() => {
-    const url = `https://todojobtask.herokuapp.com/task/${id}`;
+    const url = `https://to-do-job.vercel.app/task/${id}`;
     fetch(url, {
       method: "GET",
       headers: {
